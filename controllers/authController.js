@@ -74,7 +74,9 @@ module.exports.login_post = async (req, res) => {
         const errors = handleErrors (err);
         res.status(400).json({ errors });
     }
+}
 
-    console.log(email,password)
-    res.send('user login');
+module.exports.logout_get = (req, res) =>{
+    res.cookie('jwt', '', { maxAge: 1 });
+    res.redirect('/');
 }
